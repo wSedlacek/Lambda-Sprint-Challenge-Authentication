@@ -4,28 +4,34 @@
   "description": "Authentication Sprint Challenge",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "dev": "ts-node-dev src/index.ts",
+    "knex:migrate:make": "knex -x ts migrate:make",
+    "knex:migrate:latest": "knex migrate:latest",
+    "knex:migrate:rollback": "knex migrate:rollback",
+    "knex:seed:make": "knex -x ts seed:make",
+    "knex:seed:run": "knex seed:run"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/Sprint-Challenge-Authentication.git"
-  },
-  "keywords": [],
-  "author": "Lambda School",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LambdaSchool/Sprint-Challenge-Authentication/issues"
-  },
-  "homepage": "https://github.com/LambdaSchool/Sprint-Challenge-Authentication#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "helmet": "^3.20.0",
-    "knex": "^0.19.2",
+    "helmet": "^3.21.2",
+    "knex": "^0.20.1",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/helmet": "^0.0.45",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.7",
+    "@types/supertest": "^2.0.8",
+    "cross-env": "^6.0.3",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.2"
   }
 }
