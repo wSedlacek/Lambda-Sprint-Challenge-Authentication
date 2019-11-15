@@ -4,8 +4,8 @@ import * as helmet from 'helmet';
 import * as session from 'express-session';
 
 import { requiresAuth } from '../middleware/authenticate.middleware';
-import { authRouter } from '../routes/auth/auth.routes';
-import { jokesRouter } from '../routes/jokes/jokes.routes';
+import { authRouter } from '../routes/auth.routes';
+import { jokesRouter } from '../routes/jokes.routes';
 
 export const server = express();
 

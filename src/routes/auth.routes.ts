@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { insert, findBy } from '../../database/auth/auth.helper';
+import { insert, findBy } from '../database/auth/auth.helper';
 import { compare, hash } from 'bcrypt';
 
 export const authRouter = Router();
@@ -13,7 +13,8 @@ authRouter.post('/register', async ({ body, session }, res) => {
     res.status(201).json(saved);
   } catch (error) {
     if (error.toString() === 'Error: 400') res.status(400).json({ message: 'Bad Request' });
-    if (error.toString() === 'Error: 409') res.status(409).json({ message: 'User Already Exist' });
+    else if (error.toString() === 'Error: 409')
+      res.status(409).json({ message: 'User Already Exist' });
     else res.status(500).json(error.toString());
   }
 });

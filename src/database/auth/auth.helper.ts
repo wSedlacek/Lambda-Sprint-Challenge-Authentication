@@ -13,10 +13,13 @@ export const findBy = async (where: Partial<User>) => {
 };
 
 export const insert = async (body: User) => {
-  const user = await findBy({ username: body.username });
-  if (user) throw new Error('409');
-  const [id] = await db<User>('users').insert(body);
-  return await findBy({ id });
+  try {
+    const user = await findBy({ username: body.username });
+    throw new Error('409');
+  } catch {
+    const [id] = await db<User>('users').insert(body);
+    return await findBy({ id });
+  }
 };
 
 export const update = async (body: User, id: string | number) => {
