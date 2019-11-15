@@ -2,7 +2,8 @@
   "name": "nodeauth-challenge",
   "version": "1.0.0",
   "description": "Authentication Sprint Challenge",
-  "main": "index.js",
+  "license": "MIT",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "knex:migrate:make": "knex -x ts migrate:make",
@@ -13,16 +14,20 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "helmet": "^3.21.2",
     "knex": "^0.20.1",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.2",
+    "@types/express-session": "^1.15.15",
     "@types/helmet": "^0.0.45",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.7",
